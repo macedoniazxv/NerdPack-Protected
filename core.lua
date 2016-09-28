@@ -44,12 +44,16 @@ end)
 
 C_Timer.NewTicker(1, (function()
 	if not pT.Unlocker then
-		--EasyWoWToolBox
-		if EWT then
-			foundU('EasyWoWToolBox')
+		-- EasyWoWToolBox generic
+		if EWT and not FireHack then
+			foundU('EasyWoWToolBox Generic')
+			pT.Generic()
+		-- EasyWoWToolBox advance
+		if EWT and FireHack then
+			foundU('EasyWoWToolBox Advance')
 			pT.Advanced()
 		-- FireHack
-		elseif FireHack then
+		elseif FireHack and not EWT then
 			foundU('FireHack')
 			pT.Advanced()
 		-- Pixel Magic
